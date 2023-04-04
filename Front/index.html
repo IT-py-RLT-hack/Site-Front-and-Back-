@@ -1,77 +1,42 @@
+<!-- HTML-код для главной страницы сайта -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Заголовок страницы</title>
-	<!-- Подключение стилей -->
-	<link rel="stylesheet" href="style.css">
-    <!-- Модальные окна стилей -->
-    <link rel="stylesheet" href="modals.css">
-
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Модальное окно регистрации -->
-  <div id="register-modal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <form id="register-form">
-              <h2>Регистрация</h2>
-              <select name="userType">
-                  <option value="supplier">Поставщик</option>
-                  <option value="customer">Покупатель</option>
-              </select>
-              <input type="text" name="username" placeholder="Логин" required>
-              <input type="password" name="password" placeholder="Пароль" required>
-              <input type="password" name="confirmPassword" placeholder="Подтвердите пароль" required>
-              <button type="submit">Зарегистрироваться</button>
-          </form>
-      </div>
-  </div>
-
-  <!-- Модальное окно входа -->
-  <div id="login-modal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <form id="login-form">
-              <h2>Вход</h2>
-              <input type="text" name="username" placeholder="Логин" required>
-              <input type="password" name="password" placeholder="Пароль" required>
-              <button type="submit">Войти</button>
-          </form>
-      </div>
-  </div>
-
-	<header>
-		<!-- Логотип сайта -->
-		<div class="logo">
-			<a href="index.html"><img src="logo.png" alt="Логотип"></a>
-		</div>
-		<!-- Навигация сайта -->
-		<nav>
-            <button id="register-btn">Регистрация</button>
-            <button id="login-btn">Вход</button>
-
-			<ul>
-				<li><a href="#">Главная</a></li>
-				<li><a href="#">О нас</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<!-- Основной контент страницы -->
-		<section>
-			<h1>Поставщики:</h1>
-		</section>
-	</main>
-	<footer>
-		<!-- Футер сайта -->
-		<div class="footer-content">
-			<p>Авторские права &copy; 2023</p>
-		</div>
-	</footer>
-
-	<!-- Подключение скрипта -->
-    <script src="auth.js"></script>
+    <header>
+        <!-- Логотип сайта -->
+        <div class="logo">
+            <a href="index.html"><img src="logo.svg" alt="Логотип"></a>
+        </div>
+        <!-- Навигация сайта -->
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="Table.html">Таблица</a></li>
+                <li><a href="#">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Основной контент страницы -->
+        <section>
+            <h1>Поставщики:</h1>
+            <!-- Список компаний -->
+            <ul id="company-list"></ul>
+        </section>
+    </main>
+    <footer>
+        <!-- Футер сайта -->
+        <div class="footer-content">
+            <p>Авторские права &copy; 2023</p>
+        </div>
+    </footer>
+<!-- Подключение скрипта -->
+<script src="script.js"></script>
 </body>
 </html>
-
