@@ -1,15 +1,1 @@
-{
-"name": "ООО Сказочная страна",
-"inn": "123456789012",
-"city": "Урюпинск",
-"create_date": "2002-01-06",
-"reg_date": "2013-03-13",
-"last_tender_date": "2015-09-05",
-"contract_value": 1119758,
-"staff": 1160,
-"ban": false,
-"bidding_num": 20,
-"wins_num": 11,
-"not_executed_contracts": 0,
-"terminated_contracts": 0
-}
+{"name": "ООО Сказочная страна", "inn": "123456789012", "city": "Урюпинск", "create_date": "2002-01-06", "reg_date": "2013-03-13", "last_tender_date": "2015-09-05", "contract_value": 1119758, "staff": 1160, "ban": false, "bidding_num": 20, "wins_num": 11, "not_executed_contracts": 0, "terminated_contracts": 0}

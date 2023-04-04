@@ -1,30 +1,4 @@
-// Определяем URL для запроса
-const url = 'companies.json';
-
-// Выполняем AJAX-запрос для получения данных
-const xhr = new XMLHttpRequest();
-xhr.open('GET', url);
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    // Если запрос успешно выполнен, получаем данные из ответа
-    const data = JSON.parse(xhr.responseText);
-    // Выводим данные на страницу
-    const list = document.getElementById('company-list');
-    data.forEach(company => {
-      const item = document.createElement('li');
-      const link = document.createElement('a');
-      link.href = `company.html?id=${company.inn}`;
-      link.textContent = company.name;
-      item.appendChild(link);
-      list.appendChild(item);
-    });
-  } else {
-    // Если запрос выполнен с ошибкой, выводим сообщение об ошибке
-    console.error('Ошибка получения данных о компаниях', xhr.status);
-  }
-};
-xhr.send();
-
+const url = 'http://localhost:8080/Site-Front-and-Back-/Front/companies.json';
 
 // JavaScript-код для загрузки списка компаний на главной странице сайта
 window.onload = function() {

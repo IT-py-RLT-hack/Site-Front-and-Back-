@@ -1,0 +1,62 @@
+<!-- HTML-код для страницы Table -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица</title>
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="Table.css">
+</head>
+<body>
+    <header>
+        <!-- Логотип сайта -->
+        <div class="logo">
+            <a href="index.html"><img src="logo.svg" alt="Логотип"></a>
+        </div>
+        <!-- Навигация сайта -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="Table.html">Таблица</a></li>
+                <li><a href="About.html">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Основной контент страницы -->
+        <section>
+            <h1>Таблица</h1>
+            <!-- Таблица -->
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>ИНН</th>
+                        <th>Город</th>
+                        <th>Дата создания</th>
+                        <th>Дата регистрации</th>
+                        <th>Дата последнего тендера</th>
+                        <th>Стоимость контракта</th>
+                        <th>Количество сотрудников</th>
+                        <th>Банкротство</th>
+                        <th>Количество участий в тендерах</th>
+                        <th>Количество побед в тендерах</th>
+                        <th>Количество неисполненных контрактов</th>
+                        <th>Количество расторгнутых контрактов</th>
+                    </tr>
+                </thead>
+                <tbody id="table-data">
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <!-- Футер сайта -->
+        <div class="footer-content">
+            <p>Авторские права &copy; 2023</p>
+        </div>
+    </footer>
+    <!-- Подключение скрипта -->
+    <script src="Table.js"></script>
+</body>
+</html>
