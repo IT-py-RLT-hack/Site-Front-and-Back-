@@ -28,20 +28,23 @@
             <h1>Таблица</h1>
             <!-- Форма сортировки -->
             <form id="sort-form">
-                <label for="sort-select">Сортировать по:</label>
-                <select id="sort-select">
-                    <option value="none">---</option>
-                    <option value="wins-asc">Победы в тендерах (по возрастанию)</option>
-                    <option value="wins-desc">Победы в тендерах (по убыванию)</option>
-                </select>
-                <button type="submit">Сортировать</button>
+              <label for="sort-select">Сортировать по:</label>
+              <select id="sort-select">
+                <option value="none">---</option>
+                <option value="wins_num-asc">Победы в тендерах (по возрастанию)</option>
+                <option value="wins_num-desc">Победы в тендерах (по убыванию)</option>
+                <!-- Добавить опции для других параметров -->
+              </select>
+              <button type="submit">Сортировать</button>
             </form>
+
             <!-- Таблица -->
             <table id="table">
                 <thead>
                     <tr>
-                        <th>Название</th>
                         <th>ИНН</th>
+                        <th>Название</th>
+                        <th>Вид деятельности</th>
                         <th>Город</th>
                         <th>Дата создания</th>
                         <th>Дата регистрации</th>
@@ -53,6 +56,9 @@
                         <th>Количество побед в тендерах</th>
                         <th>Количество неисполненных контрактов</th>
                         <th>Количество расторгнутых контрактов</th>
+                        <th>Вероятность проблем</th>
+                        <th>Широта</th>
+                        <th>Долгота</th>
                     </tr>
                 </thead>
                 <tbody id="table-data">

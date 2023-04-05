@@ -1,6 +1,27 @@
 // Получение ссылки на таблицу
 const tableData = document.getElementById("table-data");
 
+const columnIndexes = {
+  inn: 0,
+  name: 1,
+  activity: 2,
+  city: 3,
+  create_date: 4,
+  reg_date: 5,
+  last_tender_date: 6,
+  contract_value: 7,
+  staff: 8,
+  ban: 9,
+  bidding_num: 10,
+  wins_num: 11,
+  not_executed_contracts: 12,
+  terminated_contracts: 13,
+  likelihood_of_problems: 14,
+  geo_lat: 15,
+  geo_lon: 16,
+};
+
+
 // Создание объекта XMLHttpRequest
 const xhr = new XMLHttpRequest();
 
@@ -20,11 +41,11 @@ xhr.onload = function() {
         // Удаляем пробелы и переводы строк из начала и конца строки
         const line = lines[i].trim();
 
-        // Разбиваем строку на ячейки, используя разделитель ";"
-        const cells = line.split(";");
+        // Разбиваем строку на ячейки, используя разделитель ","
+        const cells = line.split(",");
 
         // Пропускаем первую строку, если она содержит заголовки
-        if (i === 0 && cells[0].toLowerCase() === "name") {
+        if (i === 0 && cells[0].toLowerCase() === "inn") {
             continue;
         }
 
@@ -41,7 +62,6 @@ xhr.onload = function() {
 
 // Отправка запроса на сервер
 xhr.send();
-
 
 // Получение ссылки на форму
 const sortForm = document.getElementById("sort-form");
@@ -63,60 +83,55 @@ sortForm.addEventListener("submit", function(event) {
   }
 });
 
+// Получение всех строк таблицы
+const rows = Array.from(tableData.getElementsByTagName("tr"));
+
 // Функция сортировки по возрастанию для колонки "Количество побед в тендерах"
 function sortAscWins() {
-  // Получение индекса колонки "Количество побед в тендерах"
-  const index = 10;
+  const sortValue = sortSelect.value;
+  const index = columnIndexes[sortValue.split('-')[0]];
+  const rows = Array.from(tableData.getElementsByTagName("tr")); // перемещаем сюда
 
-  // Сортировка ячеек колонки по возрастанию
-  cells[index].sort(function(a, b) {
-    const aValue = parseInt(a.textContent);
-    const bValue = parseInt(b.textContent);
-    if (isNaN(aValue)) {
-      return 1;
-    } else if (isNaN(bValue)) {
+  rows.sort(function(a, b) {
+    const aValue = a.cells[index].textContent;
+    const bValue = b.cells[index].textContent;
+
+    if (aValue < bValue) {
       return -1;
-    } else {
-      return aValue - bValue;
     }
+    if (aValue > bValue) {
+      return 1;
+    }
+    return 0;
   });
 
-  // Перестановка ячеек таблицы в соответствии с новым порядком сортировки
   for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-    const newRow = document.createElement("tr");
-    for (let j = 0; j < cells.length; j++) {
-      newRow.appendChild(cells[j][i].cloneNode(true));
-    }
-    table.appendChild(newRow);
+    tableData.appendChild(rows[i]);
   }
 }
 
-// Функция сортировки по убыванию для колонки "Количество побед в тендерах"
 function sortDescWins() {
-  // Получение индекса колонки "Количество побед в тендерах"
-  const index = 10;
+  const sortValue = sortSelect.value;
+  const index = columnIndexes[sortValue.split('-')[0]];
+  const rows = Array.from(tableData.getElementsByTagName("tr")); // перемещаем сюда
 
-  // Сортировка ячеек колонки по убыванию
-  cells[index].sort(function(a, b) {
-    const aValue = parseInt(a.textContent);
-    const bValue = parseInt(b.textContent);
-    if (isNaN(aValue)) {
-      return -1;
-    } else if (isNaN(bValue)) {
+  rows.sort(function(a, b) {
+    const aValue = a.cells[index].textContent;
+    const bValue = b.cells[index].textContent;
+
+    if (aValue < bValue) {
       return 1;
-    } else {
-      return bValue - aValue;
     }
+    if (aValue > bValue) {
+      return -1;
+    }
+    return 0;
   });
 
-  // Перестановка ячеек таблицы в соответствии с новым порядком сортировки
   for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-    const newRow = document.createElement("tr");
-    for (let j = 0; j < cells.length; j++) {
-      newRow.appendChild(cells[j][i].cloneNode(true));
-    }
-    table.appendChild(newRow);
+    tableData.appendChild(rows[i]);
   }
 }
+
+
+
