@@ -132,6 +132,3 @@ function sortDescWins() {
     tableData.appendChild(rows[i]);
   }
 }
-
-
-
