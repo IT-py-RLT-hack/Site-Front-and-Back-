@@ -1,94 +1,98 @@
-/* Стили для всего документа */
-html {
-  font-size: 16px;
+/* Основные стили и сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
 }
 
-/* Общие стили для заголовков */
-h1, h2, h3 {
-  font-weight: bold;
-  margin-bottom: 1rem;
+body {
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-/* Стили для шапки страницы */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Стили для логотипа */
-.logo img {
-  height: 50px;
-}
-
-/* Стили для навигационного меню */
-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  margin-right: 1rem;
-}
-
-nav a {
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-nav a:hover {
-  color: #0070c9;
-}
-
-/* Стили для основного контента страницы */
-main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Стили для секций */
-section {
-  margin-bottom: 2rem;
-}
-
-/* Стили для футера */
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Стили для текста */
-p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-/* Стили для списков */
-ul, ol {
-  margin-bottom: 1rem;
-}
-
-ul li, ol li {
-  margin-bottom: 0.5rem;
-}
-
-/* Стили для ссылок */
 a {
-  color: #0070c9;
-  text-decoration: none;
+    text-decoration: none;
+    color: inherit;
 }
 
-a:hover {
-  text-decoration: underline;
+/* Шапка сайта */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 15px 30px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #f5f5f5;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #9d9d9d;
+}
+
+/* Основной контент */
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 34px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 40px;
+    font-size: 18px;
+}
+
+/* Футер сайта */
+footer {
+    background-color: #1e1e1e;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content p {
+    color: #f5f5f5;
+    font-size: 14px;
 }
