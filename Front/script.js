@@ -15,12 +15,22 @@ Papa.parse("data.csv", {
         visibleCompanies.forEach(company => {
             const inn = company.inn;
             const li = document.createElement("li");
+
+            const detailsButton = document.createElement("button"); // Создаем кнопку "Подробнее"
+            detailsButton.innerText = "Подробнее"; // Устанавливаем текст кнопки
+            detailsButton.addEventListener("click", () => { // Добавляем обработчик нажатия на кнопку
+                window.location.href = `company.html?inn=${inn}`; // Переходим на страницу компании с номером ИНН
+            });
+            li.appendChild(detailsButton); // Добавляем кнопку в список
+
             const input = document.createElement("input");
             input.type = "text";
             input.value = inn;
             li.appendChild(input);
+
             inputList.appendChild(li);
         });
+
 
         window.addEventListener("scroll", handleScroll);
 
@@ -48,3 +58,23 @@ Papa.parse("data.csv", {
         }
     }
 });
+
+
+visibleCompanies.forEach(company => {
+    const inn = company.inn;
+    const li = document.createElement("li");
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = inn;
+    li.appendChild(input);
+
+    const detailsButton = document.createElement("button"); // Создаем кнопку "Подробнее"
+    detailsButton.innerText = "Подробнее"; // Устанавливаем текст кнопки
+    detailsButton.addEventListener("click", () => { // Добавляем обработчик нажатия на кнопку
+        window.location.href = `company.html?inn=${inn}`; // Переходим на страницу компании с номером ИНН
+    });
+    li.appendChild(detailsButton); // Добавляем кнопку в список
+
+    inputList.appendChild(li);
+});
+

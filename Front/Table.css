@@ -85,3 +85,31 @@ footer {
     color: #f5f5f5;
     font-size: 14px;
 }
+
+
+/* Стили для таблицы */
+#table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Стили для заголовков столбцов */
+#table th {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    background-color: #e5e5e5;
+    border: 1px solid #ccc;
+}
+
+/* Стили для ячеек таблицы */
+#table td {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
