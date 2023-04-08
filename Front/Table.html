@@ -5,6 +5,8 @@
     <title>Таблица</title>
     <!-- Подключение стилей -->
     <link rel="stylesheet" href="Table.css">
+    <!-- Стили для чекбоксов -->
+    <link rel="stylesheet" href="checkbox.css">
 </head>
 <body>
     <header>
@@ -30,30 +32,89 @@
                 <input type="text" id="search-input" name="search-input">
                 <button id="search-clear">Очистить</button>
             </div>
+            <!-- Блок для чекбоксов скрытия/раскрытия столбцов таблицы -->
+            <div id="column-toggle">
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="inn" checked> INN
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="okopf_code" checked> OKOPF код
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="okfs_code" checked> OKFS код
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="oktmo_reg_code" checked> OKTMO регион код
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="okved_basic_code" checked> OKVED базовый код
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="registration_date" checked> Дата регистрации
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="capital_size" checked> Уставной капитал
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="avg_staff_qty" checked> Среднесписочная численность работников
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="procedure_qty" checked> Количество процедур
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="win_qty" checked> Количество побед
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="exclude_date" checked> Дата исключения
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="msp_category" checked> Категория МСП
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="usn_simlified_tax_system" checked> УСН
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="envd_imputed_tax" checked> ЕНВД
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="amount_due" checked> Сумма задолженности
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="contract_price_rub" checked> Цена контракта (руб.)
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="subcontractor_sum_percents" checked> Доля субподрядчика в процентах
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="execution_end_date" checked> Дата окончания исполнения
+              </label>
+              <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="e_doc_execution_count" checked> Количество электронных документов
+              </label>
+            </div>
             <!-- Таблица -->
             <table id="table">
                 <thead>
                     <tr>
-                        <th>INN</th>
-                        <th>OKOPF код</th>
-                        <th>OKFS код</th>
-                        <th>OKTMO регион код</th>
-                        <th>OKVED базовый код</th>
-                        <th>Дата регистрации</th>
-                        <th>Уставной капитал</th>
-                        <th>Среднесписочная численность работников</th>
-                        <th>Количество процедур</th>
-                        <th>Количество побед</th>
-                        <th>Дата исключения</th>
-                        <th>Категория МСП</th>
-                        <th>УСН</th>
-                        <th>ЕНВД</th>
-                        <th>Сумма задолженности</th>
-                        <th>Цена контракта (руб.)</th>
-                        <th>Доля субподрядчика в процентах</th>
-                        <th>Дата окончания исполнения</th>
-                        <th>Количество электронных документов</th>
-                        <!-- остальные столбцы -->
+                        <th data-column="inn">INN</th>
+                        <th data-column="okopf_code">OKOPF код</th>
+                        <th data-column="okfs_code">OKFS код</th>
+                        <th data-column="oktmo_reg_code">OKTMO регион код</th>
+                        <th data-column="okved_basic_code">OKVED базовый код</th>
+                        <th data-column="registration_date">Дата регистрации</th>
+                        <th data-column="capital_size">Уставной капитал</th>
+                        <th data-column="avg_staff_qty">Среднесписочная численность работников</th>
+                        <th data-column="procedure_qty">Количество процедур</th>
+                        <th data-column="win_qty">Количество побед</th>
+                        <th data-column="exclude_date">Дата исключения</th>
+                        <th data-column="msp_category">Категория МСП</th>
+                        <th data-column="usn_simlified_tax_system">УСН</th>
+                        <th data-column="envd_imputed_tax">ЕНВД</th>
+                        <th data-column="amount_due">Сумма задолженности</th>
+                        <th data-column="contract_price_rub">Цена контракта (руб.)</th>
+                        <th data-column="subcontractor_sum_percents">Доля субподрядчика в процентах</th>
+                        <th data-column="execution_end_date">Дата окончания исполнения</th>
+                        <th data-column="e_doc_execution_count">Количество электронных документов</th>
                     </tr>
                 </thead>
                 <tbody id="table-data">
@@ -64,5 +125,7 @@
 
     <!-- Подключение скрипта -->
     <script src="Table.js"></script>
+    <script src="checkbox.js"></script>
 </body>
 </html>
+
