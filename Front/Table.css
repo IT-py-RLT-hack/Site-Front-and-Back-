@@ -126,3 +126,7 @@ footer {
     border: 1px solid #ccc;
     white-space: nowrap;
 }
+
+.hidden {
+  display: none;
+}
