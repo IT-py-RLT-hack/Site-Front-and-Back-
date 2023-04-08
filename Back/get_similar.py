@@ -13,20 +13,21 @@ def get_similar(index_, path):
   import pandas as pd
   from numpy.linalg import norm
 
-  df = pd.read_csv(path, index_col="inn", parse_dates=["create_date", "reg_date", "last_tender_date"])
-
-  similar_weight_dict = {"geo_lat":15,  # веса
-                       "geo_lon":15,
-                       "reg_date": 0.5,
-                       "create_date":0.5,
-                       "last_tender_date":0.5,
-                       }
+  df = pd.read_csv(path, index_col="inn", parse_dates=["registration_date", "execution_end_date"])
   
+  similar_weight_dict = {
+                        "execution_end_date": 0.5,
+                        "procedure_qty":10,
+                        "win_qty":10,
+                          }
   
-  normalize_drop_list = []
+  normalize_drop_list = ['okopf_code',
+                        'okfs_code',
+                        'oktmo_reg_code'
+                          ]
 
   # отбираем компании с одинаковой деятельностью
-  normalize_df = df[df.activity == df.loc[index_, 'activity']]#.drop(normalize_drop_list, axis=1)
+  normalize_df = df[df.okved_basic_code == df.loc[index_, 'okved_basic_code']]#.drop(normalize_drop_list, axis=1)
   
   def normalize(seq):
     if seq.dtype == "bool" :
@@ -40,7 +41,7 @@ def get_similar(index_, path):
 
   # убираем колонки со строками
   normalize_df = normalize_df.drop(normalize_drop_list, axis=1)
-  
+  normalize_df = normalize_df.fillna(0)
   # умножаем на веса
   for key in similar_weight_dict.keys():
     normalize_df[key] *= similar_weight_dict[key]
