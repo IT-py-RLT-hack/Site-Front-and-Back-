@@ -22,6 +22,11 @@ header {
     align-items: center;
     background-color: #1e1e1e;
     padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
 }
 
 .logo img {
@@ -52,6 +57,7 @@ nav ul li a:hover {
 /* Основной контент */
 main {
     padding: 30px;
+    margin-top: 80px;
 }
 
 h1 {
@@ -79,6 +85,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .footer-content p {
@@ -92,6 +102,7 @@ footer {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    overflow-x: auto;
 }
 
 /* Стили для заголовков столбцов */
@@ -103,6 +114,7 @@ footer {
     text-align: center;
     background-color: #e5e5e5;
     border: 1px solid #ccc;
+    white-space: nowrap;
 }
 
 /* Стили для ячеек таблицы */
@@ -112,4 +124,5 @@ footer {
     padding: 10px;
     text-align: center;
     border: 1px solid #ccc;
+    white-space: nowrap;
 }
