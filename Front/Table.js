@@ -3,22 +3,25 @@ const pageSize = 100; // количество строк, загружаемых
 let currentPage = 0; // текущая страница
 
 const columnIndexes = {
-  inn: 1,
-  okopf_code: 2,
-  okfs_code: 3,
-  oktmo_reg_code: 4,
-  avg_staff_qty: 5,
-  procedure_qty: 6,
-  win_qty: 7,
-  exclude_date: 8,
-  msp_category: 9,
-  usn_simlified_tax_system: 10,
-  envd_imputed_tax: 11,
-  amount_due: 12,
-  contract_price_rub: 13,
-  subcontractor_sum_percents: 14,
-  execution_end_date: 15,
-  e_doc_execution_count: 16
+    inn: 1,
+    okopf_code: 2,
+    okfs_code: 3,
+    oktmo_reg_code: 4,
+    okved_basic_code: 5,
+    registration_date: 6,
+    capital_size: 7,
+    avg_staff_qty: 8,
+    procedure_qty: 9,
+    win_qty: 10,
+    exclude_date: 11,
+    msp_category: 12,
+    usn_simlified_tax_system: 13,
+    envd_imputed_tax: 14,
+    amount_due: 15,
+    contract_price_rub: 16,
+    subcontractor_sum_percents: 17,
+    execution_end_date: 18,
+    e_doc_execution_count: 19
 };
 
 // Создание объекта XMLHttpRequest
