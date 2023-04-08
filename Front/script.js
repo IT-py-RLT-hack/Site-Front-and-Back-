@@ -12,8 +12,11 @@ Papa.parse("data.csv", {
     const inputList = document.createElement("div");
     companyList.appendChild(inputList);
 
-    visibleCompanies.forEach(company => {
+
+
+        visibleCompanies.forEach(company => {
         const inn = company.inn;
+        const yPred = company.y_pred;
         const li = document.createElement("li");
 
         const innText = document.createElement("p");
@@ -22,6 +25,13 @@ Papa.parse("data.csv", {
         innText.style.fontSize = "16px";
         innText.style.color = "#333";
         li.appendChild(innText);
+
+        const yPredText = document.createElement("p"); // Добавляем значение y_pred для каждой компании
+        yPredText.innerText = `y_pred: ${yPred}`;
+        yPredText.style.fontFamily = "Arial, sans-serif";
+        yPredText.style.fontSize = "14px";
+        yPredText.style.color = "#777";
+        li.appendChild(yPredText); // Добавляем значение в список
 
         const detailsButton = document.createElement("button"); // Создаем кнопку "Подробнее"
         detailsButton.innerText = "Подробнее"; // Устанавливаем текст кнопки
@@ -33,7 +43,6 @@ Papa.parse("data.csv", {
 
         inputList.appendChild(li);
     });
-
 
     window.addEventListener("scroll", handleScroll);
 
@@ -50,6 +59,7 @@ Papa.parse("data.csv", {
 
             newCompanies.forEach(company => {
                 const inn = company.inn;
+                const yPred = company.y_pred;
                 const li = document.createElement("li");
 
                 const innText = document.createElement("p");
@@ -59,6 +69,12 @@ Papa.parse("data.csv", {
                 innText.style.color = "#333";
                 li.appendChild(innText);
 
+                const yPredText = document.createElement("p"); // Добавляем значение y_pred для каждой компании
+                yPredText.innerText = `Насколько успешно выполнит заказ: ${yPred}`;
+                yPredText.style.fontFamily = "Arial, sans-serif";
+                yPredText.style.fontSize = "14px";
+                yPredText.style.color = "#777";
+                li.appendChild(yPredText); // Добавляем значение в список
                 const detailsButton = document.createElement("button"); // Создаем кнопку "Подробнее"
                 detailsButton.innerText = "Подробнее"; // Устанавливаем текст кнопки
                 detailsButton.style.marginLeft = "auto"; // Добавляем отступ слева для кнопки
@@ -71,5 +87,5 @@ Papa.parse("data.csv", {
             });
         }
     }
-  }
+}
 });

@@ -27,6 +27,36 @@
         <!-- Основной контент страницы -->
         <section>
             <h1>Таблица</h1>
+
+
+            	<form>
+                    <label for="column-select">Выберите столбец для сортировки:</label>
+                    <select id="column-select" name="column">
+                        <option value="inn">ИНН</option>
+                        <option value="okopf_code">Код ОКОПФ</option>
+                        <option value="okfs_code">Код ОКФС</option>
+                        <option value="oktmo_reg_code">Код ОКТМО (регистрации)</option>
+                        <option value="okved_basic_code">Код ОКВЭД</option>
+                        <option value="registration_date">Дата регистрации</option>
+                        <option value="capital_size">Размер уставного капитала</option>
+                        <option value="avg_staff_qty">Среднесписочная численность работников</option>
+                        <option value="procedure_qty">Количество процедур</option>
+                        <option value="win_qty">Количество побед</option>
+                        <option value="exclude_date">Дата исключения из реестра</option>
+                        <option value="msp_category">Категория МСП</option>
+                        <option value="usn_simlified_tax_system">УСН</option>
+                        <option value="envd_imputed_tax">ЕНВД</option>
+                        <option value="amount_due">Задолженность</option>
+                        <option value="contract_price_rub">Сумма договоров (руб.)</option>
+                        <option value="subcontractor_sum_percents">Доля субподрядчиков (проценты)</option>
+                        <option value="execution_end_date">Дата окончания исполнения</option>
+                        <option value="e_doc_execution_count">Количество электронных документов в электронном документообороте</option>
+                    </select>
+                    <label for="value-input">Введите значение для сортировки:</label>
+                    <input type="text" id="value-input" name="value">
+                    <input type="submit" value="Сортировать">
+                </form>
+
             <div class="search">
                 <label for="search-input">Поиск по INN:</label>
                 <input type="text" id="search-input" name="search-input">
@@ -91,6 +121,9 @@
               <label style="display: block; margin-right: 10px;">
                 <input type="checkbox" name="e_doc_execution_count" checked> Количество электронных документов
               </label>
+                <label style="display: block; margin-right: 10px;">
+                <input type="checkbox" name="per" checked> Предсказания выполнения
+              </label>
             </div>
             <!-- Таблица -->
             <table id="table">
@@ -115,6 +148,7 @@
                         <th data-column="subcontractor_sum_percents">Доля субподрядчика в процентах</th>
                         <th data-column="execution_end_date">Дата окончания исполнения</th>
                         <th data-column="e_doc_execution_count">Количество электронных документов</th>
+                        <th data-column="per">Предсказание выполнения</th>
                     </tr>
                 </thead>
                 <tbody id="table-data">
