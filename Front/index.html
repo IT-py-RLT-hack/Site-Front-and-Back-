@@ -6,6 +6,7 @@
     <title>Главная</title>
     <!-- Подключение стилей -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="achievements.css">
 </head>
 <body>
     <header>
@@ -26,6 +27,14 @@
         <!-- Основной контент страницы -->
         <section>
             <h1>Поставщики:</h1>
+            <form>
+              <label for="inn-input">Введите ИНН:</label>
+              <input id="inn-input" type="text" name="inn">
+              <button id="search-button" type="button">Поиск</button>
+              <br>
+              <label for="achivements-list">Ачивки:</label>
+              <div id="achivements-list" class="achivements"></div>
+            </form>
             <!-- Список компаний -->
             <ul id="company-list"></ul>
         </section>
@@ -40,6 +49,7 @@
 <!-- Подключение скрипта и библиотеки Papaparse -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 <script src="script.js"></script>
+<script src="achiv.js"></script>
 
 </body>
 </html>
