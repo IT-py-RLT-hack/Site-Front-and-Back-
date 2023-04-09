@@ -35,6 +35,14 @@
               <label for="achivements-list">Ачивки:</label>
               <div id="achivements-list" class="achivements"></div>
             </form>
+            <form>
+                <label for="inn-input-2">Введите ИНН:</label>
+                <input id="inn-input-2" type="text" name="inn">
+                <button id="search-button-2" type="button">Поиск</button>
+                <br>
+                <label for="similar-companies-list">Похожие компании:</label>
+                <div id="similar-companies-list" class="similar-companies"></div>
+            </form>
             <!-- Список компаний -->
             <ul id="company-list"></ul>
         </section>
@@ -45,11 +53,10 @@
             <p>Авторские права &copy; 2023</p>
         </div>
     </footer>
-
 <!-- Подключение скрипта и библиотеки Papaparse -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 <script src="script.js"></script>
 <script src="achiv.js"></script>
-
+<script src="SameInfo.js"></script>
 </body>
 </html>

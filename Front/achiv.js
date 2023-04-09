@@ -1,11 +1,11 @@
-let data; // определяем переменную в глобальном контексте
+let achievementsData; // определяем переменную в глобальном контексте
 
 // Загружаем данные из CSV файла
 Papa.parse("achievements.csv", {
   download: true,
   header: true,
   complete: function (results) {
-    data = results.data; // Сохраняем данные в переменную "data"
+    achievementsData = results.data; // Сохраняем данные в переменную "achievementsData"
 
     // Получаем элементы формы и списка ачивок
     const innInput = document.getElementById("inn-input");
@@ -14,35 +14,42 @@ Papa.parse("achievements.csv", {
 
     // Обработчик события клика на кнопке "Поиск"
     searchButton.addEventListener("click", function() {
-      const inn = innInput.value; // Получаем значение ИНН из элемента input
+      const input = innInput.value; // Получаем значение ИНН из элемента input
 
-      // Ищем компанию с заданным ИНН в таблице
-      const company = data.find((row) => row.inn === inn);
+      if (!achievementsData) {
+        alert("Данные не загружены. Попробуйте позже.");
+        return;
+      }
 
-      // Если компания найдена, выводим ее ачивки в списке на странице
-      if (company) {
-        // Очищаем список ачивок
-        achivementsList.innerHTML = "";
+      // Поиск компании с заданным ИНН и ее ачивок
+      const company = achievementsData.find((company) => company.inn === input);
 
-        // Получаем список ачивок компании
-        const achivements = Object.keys(company).filter((key) => company[key] === "1");
+      // Обработка результатов поиска и вывод списка ачивок
+      achivementsList.innerHTML = ""; // очистка списка перед каждым поиском
 
-        // Выводим ачивки в список на странице
-        achivements.forEach((achivement) => {
-          const img = document.createElement("img"); // создаем элемент img
-          img.src = `${achivement}.png`; // устанавливаем атрибут src для картинки
-          img.alt = achivement; // устанавливаем атрибут alt для картинки
-          img.style.width = "50px"; // устанавливаем ширину картинки в 50 пикселей
-          img.style.height = "50px"; // устанавливаем высоту картинки в 50 пикселей
-          img.title = achivement; // устанавливаем описание ачивки при наведении на нее курсора
-          const div = document.createElement("div"); // создаем элемент div
-          div.appendChild(img); // добавляем картинку в элемент div
-          achivementsList.appendChild(div); // добавляем элемент div в список ачивок
-        });
-        achivementsList.style.listStyleType = "none"; // устанавливаем стиль для элементов списка
-      } else {
-        // Если компания не найдена, выводим сообщение об ошибке
+      if (!company) {
         achivementsList.innerHTML = "<li>Компания не найдена</li>";
+      } else {
+        const achievements = Object.keys(company).filter((key) => company[key] === "1");
+        if (achievements.length === 0) {
+          achivementsList.innerHTML = "<li>У компании нет ачивок</li>";
+        } else {
+          const achievementsRow = document.createElement("div");
+          achievementsRow.classList.add("achievements-row");
+          achievements.forEach((achievement) => {
+            const span = document.createElement("span");
+            span.classList.add("achievement");
+            const img = document.createElement("img");
+            img.src = `${achievement}.png`;
+            img.alt = achievement;
+            img.style.width = "50px";
+            img.style.height = "50px";
+            span.appendChild(img);
+            achievementsRow.appendChild(span);
+          });
+          achivementsList.appendChild(achievementsRow);
+        }
+
       }
     });
   },
