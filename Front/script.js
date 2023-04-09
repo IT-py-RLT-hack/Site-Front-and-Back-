@@ -25,7 +25,7 @@ Papa.parse("data.csv", {
       li.appendChild(innText);
 
       const yPredText = document.createElement("p"); // Добавляем значение y_pred для каждой компании
-      yPredText.innerText = `y_pred: ${yPred}`;
+      yPredText.innerText = `Вероятность выполнения заказа: ${yPred}`;
       yPredText.style.fontFamily = "Arial, sans-serif";
       yPredText.style.fontSize = "14px";
       yPredText.style.color = "#777";
